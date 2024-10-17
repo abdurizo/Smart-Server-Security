@@ -1,0 +1,17 @@
+.wrap{
+    display: flex;
+    align-items: center;
+}
+.nav_content {
+    color: #fff;
+    font-family: "NunitoSans_10pt_SemiCondensed-Bold";
+    display: flex;
+    align-items: center;
+}
+
+.nav_content span {
+    font-size: 2rem;
+    font-style: normal;
+    line-height: normal;
+    margin: 0 1rem 0 2rem;
+}

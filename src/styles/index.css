@@ -1,0 +1,80 @@
+@import "./fonts.css";
+@import "./stylesCard.module.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  background-color: #051225;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+ul{
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 192rem;
+  padding:  10px;
+  margin: 0 auto;
+}
+
+.swiper {
+  background: #1A253F;
+  padding: 3rem !important;
+  overflow: hidden;
+}
+
+.mySwiper .swiper-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.mySwiper .swiper-slide {
+  /* height: 100%; */
+  width: 12% !important;
+  opacity: 0.4;
+  cursor: pointer !important;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+  transform: scale(1.2) !important;
+  transition: .5s;
+  cursor: pointer !important;
+}
+
+.swiper-slide img {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.prev,
+.next {
+  position: absolute;
+  top: 20rem;
+  transform: translateY(50px);
+  cursor: pointer;
+  z-index: 33;
+}
+
+.next {
+  left: 38rem;
+}
+
+.prev {
+  right: 38rem;
+}

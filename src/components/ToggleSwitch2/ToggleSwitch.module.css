@@ -1,0 +1,40 @@
+.toggle_switch {
+    width: 5rem;
+    /* width: 4rem; */
+    height: 3rem;
+    /* height: 2.5rem; */
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.on {
+    background-color: rgba(31, 215, 121, 1);
+}
+
+.off {
+    background-color: #1A253F;;
+}
+
+.toggle_circle {
+    width: 2.6rem;
+    height: 2.6rem;
+    /* width: 2.2rem; */
+    /* height: 2.2rem; */
+    background-color: rgba(5, 18, 37, 1);
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.on .toggle_circle {
+    /* transform: translateX(30px); */
+    transform: translateX(20px);
+}
+
+.off .toggle_circle {
+    transform: translateX(0);
+}

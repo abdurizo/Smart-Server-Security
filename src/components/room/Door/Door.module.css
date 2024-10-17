@@ -1,0 +1,12 @@
+.wrap {
+    width: 47rem;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+
+}
+
+.door_wrap {
+    display: flex;
+    justify-content: center;
+}

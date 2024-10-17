@@ -1,0 +1,33 @@
+.wrap_condition {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(50px);
+}
+.smoke{
+    position: absolute;
+        top: 10px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: translateY(50px);
+}
+.wrap_condition h4 {
+    color: rgba(255, 255, 255, 0.60);
+    text-align: center;
+    font-family: "NunitoSans_10pt_SemiCondensed-Bold";
+    font-size: 2rem;
+    font-style: normal;
+    width: 20rem;
+    position: absolute;
+    bottom: -10px;
+}
