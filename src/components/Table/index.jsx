@@ -1,37 +1,104 @@
 import styles from '../../styles/stylesCard.module.css';
-import React, { useMemo } from 'react';
-import mData from "../../Data.json";
+
+import {useSearchParams } from 'react-router-dom';
+import React, { useState, useEffect, } from 'react';
+import axios from "axios";
+
+// import mData from "../../Data.json";
+
 
 import TableConstruction from './TableConstruction';
-import User from '../../assets/icons/User'
+import Pagiation from '../Pagination'
+
+import User from '../../assets/icons/User';
 
 
 function Table({ search }) {
-    const data = useMemo(() => mData, [])
+
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [amountOfElements, setAmountOfElements] = useState(5);
+    const [isLoading, setIsLoading] = useState(false)
+    const [page, setPage] = useState(searchParams.get('page') ?? 1) // текущая страница
+    const [news, setNews] = useState({
+        numPages: 0,
+        results: [],
+        count: 0
+    }) // получаемая страница
+
+    useEffect(() => {
+        setIsLoading(true)
+        axios.get(`https://aloqamuzeyi.uz/uz/api/exhibits/`, {
+            params: {
+                // p: searchParams.get('page') ?? 1,
+                p: page,
+                page_size: amountOfElements,
+            }
+        })
+            .then(res => {
+                // console.log(res)
+                setNews({
+                    numPages: res.data.num_pages,
+                    results: res.data.results,
+                    count: res.data.count
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [amountOfElements, page])
+
+
+    const handlePaginationChange = (selected) => {
+        const newPage = selected + 1; // Приведение к 1-индексации
+        setSearchParams({ page: newPage, count: amountOfElements });
+        setPage(newPage);
+    };
+
+    // const handlePaginationChange = ({ selected }) => {
+    //     setSearchParams({
+    //         count: amountOfElements,
+    //         page: selected + 1
+    //     })
+    //     setPage(selected + 1)
+    // }
+
+    // const getValue = () => {
+    //     return amountOfElements ? options.find(c => c.value === amountOfElements) : ''
+    // }
+
+    // const langSelect = (newValue) => {
+    //     setSearchParams({
+    //         count: newValue.value
+    //     })
+    //     setAmountOfElements(newValue.value)
+    // }
+
+
+    // const data = useMemo(() => mData, [])   
     // const navigate = useNavigate()
+
     const columns = [
         {
             Header: '#',
-            accessor: (data) => data.id,
+            accessor: (index) => index + 1,
         },
        
         {
             Header: 'Ism',
-            accessor: (data) => data.first_name,
-            // onClick: () => navigate('/objects/:id')
-        },
-        
-        {
-            Header: 'Obyekt turi',
-            accessor: (data) => data.object_type,
+            accessor: (data) =>  data ?.['slug'],
             // onClick: () => navigate('/objects/:id')
         },
         
         {
             Header: 'Kuni',
-            accessor: (data) => "18.10.2023",
+            accessor: (data) => '12.02.2024',
             // onClick: () => navigate('/objects/:id')
         },
+        
         {
             Header: 'Kirish vaqti',
             accessor: (data) => "2023-2024 yy.",
@@ -61,9 +128,9 @@ function Table({ search }) {
                     </div>
                     <div><User /></div>
                 </div>
-                <TableConstruction columns={columns} data={data} />
+                <TableConstruction columns={columns}  data={news.results}/>
+                <Pagiation   handlePaginationChange={handlePaginationChange} pageCount={news.numPages} currentPage={page}  />    
             </div>
-            
         </>
     )
 }

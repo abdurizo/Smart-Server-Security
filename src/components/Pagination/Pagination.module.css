@@ -1,0 +1,26 @@
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.2rem; 
+}
+
+.paginate_item {
+    display: flex;
+    font-size: 1.6rem;
+    font-family: "NunitoSans_10pt_SemiCondensed-Bold";
+    color: #878787;
+    grid-gap: 1rem;
+    cursor: pointer;
+}
+
+.page a,
+.transition a {
+    display: inline-block;
+    padding: 1.2rem;
+}
+
+.page_active {
+    color: #fff;
+    background: #4E75FF;
+}
