@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 import TableConstruction from './TableConstruction';
-import Pagiation from '../Pagination'
+import Pagination from '../Pagination'
 
 import User from '../../assets/icons/User';
 
@@ -18,7 +18,7 @@ function Table({ search }) {
     const [searchParams, setSearchParams] = useSearchParams()
     const [amountOfElements, setAmountOfElements] = useState(5);
     const [isLoading, setIsLoading] = useState(false)
-    const [page, setPage] = useState(searchParams.get('page') ?? 1) // текущая страница
+    const [page, setPage] = useState(Number(searchParams.get('page')) || 1) // текущая страница
     const [news, setNews] = useState({
         numPages: 0,
         results: [],
@@ -29,7 +29,6 @@ function Table({ search }) {
         setIsLoading(true)
         axios.get(`https://aloqamuzeyi.uz/uz/api/exhibits/`, {
             params: {
-                // p: searchParams.get('page') ?? 1,
                 p: page,
                 page_size: amountOfElements,
             }
@@ -52,39 +51,16 @@ function Table({ search }) {
     }, [amountOfElements, page])
 
 
-    const handlePaginationChange = (selected) => {
+    const handlePaginationChange = ({selected}) => {
         const newPage = selected + 1; // Приведение к 1-индексации
         setSearchParams({ page: newPage, count: amountOfElements });
         setPage(newPage);
     };
 
-    // const handlePaginationChange = ({ selected }) => {
-    //     setSearchParams({
-    //         count: amountOfElements,
-    //         page: selected + 1
-    //     })
-    //     setPage(selected + 1)
-    // }
-
-    // const getValue = () => {
-    //     return amountOfElements ? options.find(c => c.value === amountOfElements) : ''
-    // }
-
-    // const langSelect = (newValue) => {
-    //     setSearchParams({
-    //         count: newValue.value
-    //     })
-    //     setAmountOfElements(newValue.value)
-    // }
-
-
-    // const data = useMemo(() => mData, [])   
-    // const navigate = useNavigate()
-
     const columns = [
         {
             Header: '#',
-            accessor: (index) => index + 1,
+            accessor: (row, rowIndex) => rowIndex + 1,
         },
        
         {
@@ -129,7 +105,7 @@ function Table({ search }) {
                     <div><User /></div>
                 </div>
                 <TableConstruction columns={columns}  data={news.results}/>
-                <Pagiation   handlePaginationChange={handlePaginationChange} pageCount={news.numPages} currentPage={page}  />    
+                <Pagination   handlePaginationChange={handlePaginationChange} pageCount={news.numPages || 1} currentPage={page}  />    
             </div>
         </>
     )
