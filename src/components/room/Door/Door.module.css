@@ -1,10 +1,8 @@
 .wrap {
-    width: 47rem;
-    height: ;
     position: relative;
     border-radius: 1rem;
+    background: #1A253F;
     overflow: hidden;
-
 }
 
 .door_wrap {

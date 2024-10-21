@@ -35,7 +35,7 @@ function Door() {
       >
         <SwiperSlide>
           {/* <div className={styles.card}> */}
-            <div className={styles.chart_header}>
+            <div className={styles.chart_header}> 
               <div className={styles.chart_content}>
                 <h2 className={styles.title}>Xonada eshik <span>yopiq</span> </h2>
                 <h3 className={styles.subtitle}>15.06.2024  / 14:00</h3>

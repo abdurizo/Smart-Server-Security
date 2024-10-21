@@ -16,7 +16,7 @@ function RoomCondition() {
       <div className='card'>
         <div className='chart_header'>
           <div className='chart_content'>
-            <h2 className='title'>Xonada eshik <span>yopiq</span> </h2>
+            <h2 className='title'>Xona holati <span>yaxshi</span> </h2>
             <h3 className='subtitle'>15.06.2024  / 14:00</h3>
           </div>
           <div>

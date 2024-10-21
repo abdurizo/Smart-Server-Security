@@ -50,6 +50,10 @@ function DropDown({ isOpen, toggleSwitch }) {
 
         </li>
         <li>
+          <span>Harorat</span>
+          <ToggleSwitch2 isActive={activeFilters['filter6']} handleToggle={() => handleFilter('filter6')} />
+        </li>
+        <li>
           <span>Xona holati</span>
           <ToggleSwitch2 isActive={activeFilters['filter3']} handleToggle={() => handleFilter('filter3')} />
 
@@ -60,14 +64,11 @@ function DropDown({ isOpen, toggleSwitch }) {
 
         </li>
         <li>
-          <span>Harorat</span>
+          <span>Xonaga kirganlar</span>
           <ToggleSwitch2 isActive={activeFilters['filter5']} handleToggle={() => handleFilter('filter5')} />
 
         </li>
-        <li>
-          <span>Xonaga kirganlar</span>
-          <ToggleSwitch2 isActive={activeFilters['filter6']} handleToggle={() => handleFilter('filter6')} />
-        </li>
+       
       </ul>
     </div>
   )

@@ -1,7 +1,7 @@
 .card {
     border-radius: 1rem;
     background: #1A253F;
-    padding: 3rem;
+    padding: 2rem 3rem;
     overflow: hidden;
 }
 
@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     font-family: 'NunitoSans_10pt_SemiCondensed-Bold';
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;    
 }
 
 .title {

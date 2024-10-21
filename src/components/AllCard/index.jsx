@@ -16,10 +16,11 @@ function AllCharts() {
     <div className={styles.wrapper}>
       {currentFilters?.filter1 && <ElectricChart />}
       {currentFilters?.filter2 && <AirHumidity />}
+      {currentFilters?.filter6 && <Collection />}
       {currentFilters?.filter3 && <Temperature />}
       {currentFilters?.filter4 && <NoLiquid />}
       {currentFilters?.filter5 && <Table />}
-      {currentFilters?.filter6 && <Collection />}
+      
     </div>
   )
 }

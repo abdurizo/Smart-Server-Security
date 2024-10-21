@@ -14,14 +14,14 @@
 }
 
 .colums_title th {
-    padding: 0.8rem 1.6rem;
+    padding: 0.5rem 1.6rem;
     color: rgba(255, 255, 255, 0.60);
     font-weight: normal;
     background: rgba(255, 255, 255, 0.050);
 }
 
 .colums_sub_title td {
-    padding: 0.8rem 1.6rem;
+    padding: 0.5rem 1.6rem;
     cursor: pointer;
 }
 

@@ -29,7 +29,7 @@ function Pagination({handlePaginationChange, pageCount, currentPage}) {
                     nextLabel={<Next/>}
                     previousLabel={<Previous/>}
                     onPageChange={handlePaginationChange}
-                    pageRangeDisplayed={5}
+                    pageRangeDisplayed={2}
                     pageCount={pageCount}
                     renderOnZeroPageCount={null}    
                     initialPage={
