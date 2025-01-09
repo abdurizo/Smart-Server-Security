@@ -20,16 +20,16 @@ function RoomCondition() {
             <h3 className='subtitle'>15.06.2024  / 14:00</h3>
           </div>
           <div>
-            <Check />
-            {/* <ExclamationMark/> */}
+            {/* <Check /> */}
+            <ExclamationMark/>
           </div>
         </div>
         <div className={styles.wrap_condition}>
-          <SemicircleGreen />
-          {/* <SemicircleRed/> */}
+          {/* <SemicircleGreen /> */}
+          <SemicircleRed/>
           <Home className={styles.home}/>
-          {/* <Fire className={stylesR.home}/> */}
-          {/* <Smoke className={stylesR.smoke} /> */}
+          {/* <Fire className={styles.home}/> */}
+          {/* <Smoke className={styles.smoke} /> */}
           <h4>Xonada hech qanday holat kuzatilmadi</h4>
         </div>
       </div>
