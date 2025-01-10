@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    cursor: pointer;
 }
 .nav_content span {
     font-size: 2rem;
